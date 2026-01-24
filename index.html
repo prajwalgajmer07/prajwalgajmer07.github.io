@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Prajwal Gajmer</title>
+    <title>Prajwal Gajmer | Data Analyst Portfolio</title>
     <meta charset="utf-8">
+	<meta name="description" content="Portfolio of Prajwal Gajmer, aspiring Data Analyst skilled in SQL, Python, Power BI, Tableau and data visualization. View projects, resume and certifications." />
+	<meta name="author" content="Prajwal Gajmer" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -141,9 +143,8 @@
 	      	<div class="overlay"></div>
 	         <div class="container">
 	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.png);">
-	          	 <div class="overlay"></div>
-	          	</div>
+	          	<div class="one-third js-fullheight order-md-last hero-visual">
+					</div>
 		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
 		          	<div class="text">
 		          		<span class="subheading">Hello!</span>
@@ -153,35 +154,50 @@
 						<span id="typing-animation"></span>
 
 						<script>
+								const typingAnimationElement = document.getElementById('typing-animation');
 
-						// Initialize the typing animation
-						const typingAnimationElement = document.getElementById('typing-animation');
+							const typingTexts = [
+							'Aspiring Data Analyst',
+							'Financial Analytics Enthusiast',
+							'Healthcare Analytics Enthusiast',
+							'Business Intelligence Analyst',
+							'Power BI & SQL Specialist'
+							];
 
-						// Create an array of typing text
-						const typingTexts = [
-						'Student  ',
-						'Data Analyst  ',
-						'Financial Analyst Ethusiant   ',
-						];
+							let textIndex = 0;
+							let charIndex = 0;
+							let isDeleting = false;
 
-						// Create a function to display the typing animation for a given text
-						function playTypingAnimation(text) {
-						// Loop through each character and add it to the element
-						for (let i = 0; i < text.length; i++) {
-							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
-							}, i * 200); // Increase the delay to slow down the typing animation
-						}
+							const typingSpeed = 60;
+							const deletingSpeed = 30;
+							const holdAfterType = 1000;
 
-						// Once the animation is complete, reset the text and start over
-						setTimeout(() => {
-							typingAnimationElement.textContent = '';
-							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-						}, text.length * 200);
-						}
+							function playTypingAnimation() {
+							const currentText = typingTexts[textIndex];
 
-						// Start the typing animation loop
-						playTypingAnimation(typingTexts[0]);
+							if (!isDeleting) {
+								// 👉 typing forward
+								typingAnimationElement.textContent = currentText.substring(0, charIndex + 1);
+								charIndex++;
+
+								if (charIndex === currentText.length) {
+								setTimeout(() => isDeleting = true, holdAfterType);
+								}
+							} else {
+								// 👈 deleting backward
+								typingAnimationElement.textContent = currentText.substring(0, charIndex - 1);
+								charIndex--;
+
+								if (charIndex === 0) {
+								isDeleting = false;
+								textIndex = (textIndex + 1) % typingTexts.length;
+								}
+							}
+
+							setTimeout(playTypingAnimation, isDeleting ? deletingSpeed : typingSpeed);
+							}
+
+							playTypingAnimation();
 
 						</script>
 
@@ -260,12 +276,12 @@
 								<p>B.Sc. graduate with a strong foundation in mathematics and data analytics, skilled in various tech tools, aiming to start a career as a Data Analyst, seeking to grow as a Data Analyst in a performance-focused environment.</p>
 								<ul class="about-info mt-4 px-md-0 px-2">
 									<li class="d-flex"><span>Profile:</span> <span>Data Science &amp; Analytics</span></li>
-									<li class="d-flex"><span>Domain:</span> <span>Retail, Ecommerce, Financial &amp; Forecasting</span></li>
+									<li class="d-flex"><span>Domain:</span> <span>Business, Healthcare &amp; Financial Data Analytics</span></li>
 									<li class="d-flex"><span>Education:</span> <span>Bachelor of Science</span></li>
 									<li class="d-flex"><span>Language:</span> <span>English, Hindi</span></li>
-									<li class="d-flex"><span>BI Tools:</span> <span>Microsoft Power BI, &amp; Tableau</span></li>
-									<li class="d-flex"><span>Other Skills:</span> <span>Machine Learning,Financial Modeling  &amp AI tools </span></li>
-									<li class="d-flex"><span>Interest:</span> <span>Traveling, Travel Photography, Gaming, Cooking</span></li>
+									<li class="d-flex"><span>BI Tools:</span> <span>Microsoft Power BI &amp; Tableau</span></li>
+									<li class="d-flex"><span>Other Skills:</span> <span>Excel, SQL &amp; Python </span></li>
+									<li class="d-flex"><span>Interest:</span> <span>Machine Learning, Financial Modeling  &amp; AI tools</span></li>
 									
 								</ul>
 							</div>
@@ -311,7 +327,7 @@
   			<div class="col-md-3">
     			<div class="resume-wrap ftco-animate cert-card">
       				<img src="images/cert-data-analytics.png" class="img-fluid cert-img cert-popup" alt="Data Analytics Certificate">
-					<span class="cert-hover-text">Click to enlarge</span>
+					<span class="cert-hover-text">Click Certificate to View</span>
       				<h2>Data Analytics</h2>
       				<span class="position">Excel SQL Python</span>
     			</div>
@@ -320,7 +336,7 @@
  			<div class="col-md-3">
    				<div class="resume-wrap ftco-animate cert-card">
       				<img src="images/cert-sql.png" class="img-fluid cert-img cert-popup" alt="SQL Certificate">
-					<span class="cert-hover-text">Click to enlarge</span>
+					<span class="cert-hover-text">Click Certificate to View</span>
       				<h2>SQL</h2>
       				<span class="position">Joins Subqueries Window Functions</span>
    				 </div>
@@ -329,7 +345,7 @@
 			<div class="col-md-3">
 				<div class="resume-wrap ftco-animate cert-card">
 					<img src="images/cert-powerbi.png" class="img-fluid cert-img cert-popup" alt="Power BI Certificate">
-					<span class="cert-hover-text">Click to enlarge</span>
+					<span class="cert-hover-text">Click Certificate to View</span>
 					<h2>Power BI</h2>
 					<span class="position">DAX Data Modeling Dashboards</span>
 				</div>
@@ -338,7 +354,7 @@
 			<div class="col-md-3">
 				<div class="resume-wrap ftco-animate cert-card">
 					<img src="images/cert-tableau.png" class="img-fluid cert-img cert-popup" alt="Tableau Certificate">
-					<span class="cert-hover-text">Click to enlarge</span>
+					<span class="cert-hover-text">Click Certificate to View</span>
 					<h2>Tableau</h2>
 					<span class="position">Calculated Fields Dashboards</span>
 				</div>	
@@ -381,7 +397,7 @@
 
     		<div class="row justify-content-center mt-5">
     			<div class="col-md-6 text-center ftco-animate">
-    				<p><a href="#" class="btn btn-primary py-4 px-5">Download CV</a></p>
+    				<p><a href="assets/Prajwal_Gajmer_Resume.pdf" class="btn btn-primary py-4 px-5" target="_blank" >Download CV</a></p>
     			</div>
     		</div>
     	</div>
@@ -561,7 +577,7 @@
           			<span class="icon-globe"></span>
           		</div>
           		<h3 class="mb-4">Download Resume</h3>
-	            <p><a href="#">resumelink</a></p>
+	            <p><a href="assets/Prajwal_Gajmer_Resume.pdf" target="_blank">Click To Download</a></p>
 	          </div>
           </div>
 
@@ -570,7 +586,7 @@
 			<br>
 			<div class="row justify-content-center">
 				<div class="col-md-7 ftco-animate text-center">
-					<h2>Have a<span> Question?  </span> <a href="https://forms.gle/uLaTShUKXraAvHJ77" class="btn btn-primary py-3 px-5">Click Here</a> </h2>
+					<h2> Have a <span>Question?</span><a href="mailto:Prajwalgazmr@gmail.com" class="btn btn-primary py-3 px-5">Email Me</a></h2>
 				</div>
 			</div>
 				<br>
@@ -596,7 +612,7 @@
 			<div class="col-md-12 text-center">
   
 			  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Prajwal Gajmer — Built with passion <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 			</div>
 		  </div>
