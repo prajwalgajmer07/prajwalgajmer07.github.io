@@ -270,9 +270,6 @@
   });
 
 
-
-
-
 })(jQuery);
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -297,4 +294,31 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.style.display = "none";
   });
 
+});
+
+/* ======================================
+   RANDOM GLOW – HOME SLABS ONLY
+   ====================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slabs = document.querySelectorAll(".home-slabs .slab");
+  if (!slabs.length) return;
+
+  function randomGlow() {
+    slabs.forEach(s => s.classList.remove("glow"));
+
+    const index = Math.floor(Math.random() * slabs.length);
+    const active = slabs[index];
+
+    active.classList.add("glow");
+
+    setTimeout(() => {
+      active.classList.remove("glow");
+    }, 900);
+
+    const nextDelay = Math.random() * 1200 + 800;
+    setTimeout(randomGlow, nextDelay);
+  }
+
+  setTimeout(randomGlow, 2200);
 });
