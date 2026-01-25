@@ -8183,7 +8183,7 @@ h1, h2, h3, h4, h5,
   top: 0;
   left: 0;
   right: 0;
-  z-index: 3; }
+  z-index: 20; }
   @media (max-width: 991.98px) {
     .ftco-navbar-light {
       background: #0f172a !important;
@@ -8463,7 +8463,8 @@ h1, h2, h3, h4, h5,
         left: 0;
         right: 0;
         background: #0f172a;
-        opacity: 0; }
+        opacity: 0;
+        z-index: 1; }
       .owl-carousel.home-slider .slider-item .slider-text {
         height: 750px;
         z-index: 0; }
@@ -9823,4 +9824,90 @@ textarea.form-control {
   font-size:15px;
   letter-spacing:1px;
 }
+
+/* ==========================================
+   HOME SECTION – DIAGONAL SLABS (BACKGROUND)
+   ========================================== */
+
+.home-slabs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2; /* above overlay, below text */
+  overflow: hidden;
+}
+
+/* Base slab */
+.home-slabs .slab {
+  position: absolute;
+  width: 340px;
+  height: 90px;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.18)
+  );
+  transform: rotate(-35deg);
+  opacity: 0.38;
+  filter: blur(0.2px);
+}
+
+/* -------- Tip-only glow layer -------- */
+.home-slabs .slab::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;                 /* glow at the tip */
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0.9)
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Glow state — ONLY the tip */
+.home-slabs .slab.glow::after {
+  opacity: 1;
+}
+
+/* -------- Slab alignment (premium rhythm) -------- */
+
+.home-slabs .slab:nth-child(1) {
+  top: 10%;
+  right: -60px;   /* pulled slightly inside */
+  width: 420px;
+}
+
+.home-slabs .slab:nth-child(2) {
+  top: 22%;
+  right: -150px;
+  width: 360px;
+}
+
+.home-slabs .slab:nth-child(3) {
+  top: 36%;
+  right: -190px;
+  width: 300px;
+}
+
+.home-slabs .slab:nth-child(4) {
+  top: 52%;
+  right: -170px;
+  width: 340px;
+}
+
+.home-slabs .slab:nth-child(5) {
+  top: 70%;
+  right: -210px;
+  width: 280px;
+}
+
+/* ---- last two slabs intentionally removed for premium balance ---- */
 
